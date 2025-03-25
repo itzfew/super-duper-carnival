@@ -41,5 +41,5 @@ app.post('/create-order', async (req, res) => {
 });
 
 app.listen(5000, () => {
-    console.log('Server running on http://localhost:5000');
+    console.log('Server running on https://super-duper-carnival-beta.vercel.app/create-order');
 });
