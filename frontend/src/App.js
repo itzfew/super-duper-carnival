@@ -16,29 +16,29 @@ const App = () => {
     };
 
     const checkout = () => {
-        // Make API request to create order and get the payment URL
-        fetch('http://localhost:5000/create-order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                order_id: 'order123',
-                order_amount: 50.00,
-                customer_email: 'customer@example.com',
-                customer_phone: '1234567890',
-            }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.success) {
-                    window.location.href = data.payment_url; // Redirect to Cashfree payment page
-                } else {
-                    alert('Payment creation failed.');
-                }
-            })
-            .catch((error) => console.error('Error:', error));
-    };
+    // Make API request to create order and get the payment URL
+    fetch('https://super-duper-carnival-beta.vercel.app/create-order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            order_id: 'order123',
+            order_amount: 50.00,
+            customer_email: 'customer@example.com',
+            customer_phone: '1234567890',
+        }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.success) {
+            window.location.href = data.payment_url; // Redirect to Cashfree payment page
+        } else {
+            alert('Payment creation failed.');
+        }
+    })
+    .catch((error) => console.error('Error:', error));
+};
 
     return (
         <div className="App">
