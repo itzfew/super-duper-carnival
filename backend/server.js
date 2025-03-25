@@ -5,7 +5,7 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-// Your Cashfree API credentials
+// Replace these with your actual Cashfree API credentials
 const cashfreeAPIKey = 'YOUR_CASHFREE_API_KEY';
 const cashfreeSecretKey = 'YOUR_CASHFREE_SECRET_KEY';
 
@@ -30,7 +30,7 @@ app.post('/create-order', async (req, res) => {
         if (response.data.status === 'success') {
             res.json({
                 success: true,
-                payment_url: response.data.payment_url,  // URL to redirect user to payment page
+                payment_url: response.data.payment_url, // URL to redirect user to payment page
             });
         } else {
             res.json({ success: false, message: 'Failed to create order' });
@@ -41,5 +41,5 @@ app.post('/create-order', async (req, res) => {
 });
 
 app.listen(5000, () => {
-    console.log('Server running on https://super-duper-carnival-beta.vercel.app/create-order');
+    console.log('Server running on http://localhost:5000');
 });
